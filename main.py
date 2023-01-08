@@ -5,7 +5,7 @@ import os
 import sys
 
 
-Version = 'Release 1.0'
+Version = 'Release 1.0.1'
 sys.stdout.write(f"ThunderHook {Version}")
 
 os.system("")
@@ -36,13 +36,15 @@ time.sleep(1)
 Mode = input("What would you like to do? (1 = Send Messages via Webhook | 2 = Modify Webhook | 3 = Webhook Info) > ")
 
 if Mode == "1":
-    MsgMode = input("What would you like to do? (1 = Nuke Webhook (Spam) | 2 = Send Standalone Messages > ")
+    MsgMode = input("What would you like to do? (1 = Nuke Webhook (Spam) | 2 = Send Standalone Messages) > ")
 
     if MsgMode == "1":
         SpamMessage = input("Input the message you wish to spam here > ")
+        MsgA = 0
         while True:
             hook.send(SpamMessage)
-            print(Fore.LIGHTGREEN_EX + "[+] Message Sent!")
+            MsgA = MsgA + 1
+            print(Fore.LIGHTGREEN_EX + "[+] Message Sent! (" + str(MsgA) + ")")
 
     if MsgMode == "2":
         print("Input the messages you wish to send:")
